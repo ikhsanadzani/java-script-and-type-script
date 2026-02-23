@@ -1,7 +1,22 @@
-let modal = 27000;
-let hargaJual = 60000;
-let diskonPenjualan = 10;
+const hitungPromo = () => {
+    const modal = 27000;
+    const hargaJual = 60000;
+    let diskonPenjualan = 10;
 
-for (let i = 1; i <= 7; i++) {
-    let hargaDiskon = hargaJual * (1 - diskonPenjualan / 100 );
+    console.log(hasilnya);
+
+    for (let hari = 1; hari <= 7; hari++) {
+        let hargaSetelahDiskon = hargaJual * (1 - diskonPenjualan / 100);
+
+        let tarifPajak; {
+            if (hari % 2 === 0) {
+                tarifPajak = 0.20;
+            } else {
+                tarifPajak = 0.125;
+            }
+        }
+        
+    }
+
+
 }
