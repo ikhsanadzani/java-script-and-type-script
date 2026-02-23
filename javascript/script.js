@@ -14,8 +14,8 @@ const hitungPromo = () => {
         let pendapatanBersih = hargaSetelahDiskon - potonganPajak;
         let labaRugi = pendapatanBersih - modal;
 
-    console.log (`Hari ${hari}: Rp.${Math.round(labaRugi)}`);
-    diskonPenjualan/=2;
+    console.log (`Hari ${hari}: Untung = Rp.${Math.round(labaRugi)}`);
+    diskonPenjualan /=2;
     }
 };
 
