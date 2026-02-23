@@ -3,5 +3,5 @@ let hargaJual = 60000;
 let diskonPenjualan = 10;
 
 for (let i = 1; i <= 7; i++) {
-    
+    let hargaDiskon = hargaJual * (1 - diskonPenjualan / 100 );
 }
