@@ -3,7 +3,6 @@ const hitungPromo = () => {
     const hargaJual = 60000;
     let diskonPenjualan = 10;
 
-    console.log(hasilnya);
 
     for (let hari = 1; hari <= 7; hari++) {
         let hargaSetelahDiskon = hargaJual * (1 - diskonPenjualan / 100);
@@ -15,7 +14,7 @@ const hitungPromo = () => {
         let pendapatanBersih = hargaSetelahDiskon - potonganPajak;
         let labaRugi = pendapatanBersih - modal;
 
-    console.log ('Hari ${hari}: Rp.${Math.round(labaRugi)}');
+    console.log (`Hari ${hari}: Rp.${Math.round(labaRugi)}`);
     diskonPenjualan/=2;
     }
 };
