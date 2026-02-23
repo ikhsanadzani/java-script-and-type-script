@@ -16,7 +16,11 @@ const hitungPromo = () => {
             }
         }
         
+        let potonganPajak = hargaSetelahDiskon * tarifPajak;
+
+        let pendapatanBersih = hargaSetelahDiskon - potonganPajak;
+        let labaRugi = pendapatanBersih - modal;
     }
+};
 
-
-}
+hitungPromo();
