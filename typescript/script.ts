@@ -9,8 +9,10 @@ const hitungPromo=(): void=> {
         let tarifPajak: number = (hari % 2 === 0) ? 0.20 : 0.125;
 
         let potonganPajak: number = hargaSetelahDiskon * tarifPajak;
-        let pendapatanBersih: number = hargaSetelahDiskon * potonganPajak;
-        
+        let pendapatanBersih: number = hargaSetelahDiskon - potonganPajak;
+
+        let labaRugi: number = pendapatanBersih - modal;
+
     }
 }
 
