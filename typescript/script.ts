@@ -3,6 +3,8 @@ const hitungPromo=(): void=> {
     const hargaJual: number = 60000;
     let diskonPenjualan: number = 10;
 
+    console.log("Halo Manajer!");
+    
     for(let hari: number = 1; hari <= 7; hari++){
         const hargaSetelahDiskon : number = hargaJual * (1 - diskonPenjualan /100);
 
