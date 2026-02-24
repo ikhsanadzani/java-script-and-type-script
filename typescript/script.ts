@@ -4,6 +4,6 @@ const hitungPromo=(): void=> {
     let diskonPenjualan: number = 10;
 
     for(let hari; hari <= 7; hari++) {
-        
+        const hargaSetelahDiskon : number = hargaJual * (1 - diskonPenjualan /100);
     }
 }
