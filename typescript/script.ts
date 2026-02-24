@@ -13,7 +13,13 @@ const hitungPromo=(): void=> {
 
         let labaRugi: number = pendapatanBersih - modal;
 
+        console.log(
+            `Hari ${hari}: Laba Rp${Math.round(labaRugi).toLocaleString('id-ID')} | ` +
+            `Diskon: ${diskonPenjualan.toFixed(2)}% | ` +
+            `Pajak: ${(tarifPajak * 100)}%`
+        );
+        diskonPenjualan /= 2;
     }
-}
+};
 
 hitungPromo();
