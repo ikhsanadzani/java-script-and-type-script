@@ -1,1 +1,3 @@
-
+const hitungPromo=(): void=> {
+    
+}
