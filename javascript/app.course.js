@@ -110,15 +110,45 @@ class appCourse {
     }
     // total penyusunan pelatihan per sesi
 
-    total_compiler_concept_sessi () {
-        return this.rasio.konsep * this.jumlah.totalPertemuan;
+    total_waktu_compiler_module_sessi () {
+        return this.total_compiler_module_sessi() * this.penyusunan.module;
     }
-    // total penyusunan penilaian konseptual per sesi
+    // total waktu penyusunan module per sesi
 
-    total_compiler_practic_sessi () {
-        return this.rasio.praktek * this.jumlah.totalPertemuan;
+    total_waktu_compiler_pelatihan_sessi () {
+        return this.total_compiler_pelatihan_sessi() * this.penyusunan.pelatihan;
     }
-    // total penyusunan penilaian praktek per sesi
+    // total waktu penyusunan pelatihan per sesi
+
+    total_waktu_compiler_concept_sessi () {
+        return this.rasio.konsep * this.penyusunan.penilaian_konseptual;
+    }
+    // total waktu penyusunan penilaian konseptual per sesi
+
+    total_waktu_compiler_practic_sessi () {
+        return this.rasio.praktek * this.penyusunan.penilaian_praktek;
+    }
+    // total waktu penyusunan penilaian praktek per sesi
+
+    total_waktu_compiler_assign_sessi () {
+        return this.total_waktu_compiler_concept_sessi() + this.total_waktu_compiler_practic_sessi();
+    }
+    // total waktu penyusunan penilaian per sessi
+
+    total_waktu_review_module_sessi () {
+        return this.total_compiler_module_sessi() * this.review.modul;
+    }
+    // total waktu review modul per sesi
+
+    total_waktu_review_pelatihan_sessi () {
+        return this.total_compiler_pelatihan_sessi() * this.review.latihan;
+    }
+    // total waktu review pelatihan per sesi
+
+    total_waktu_review_assignment_sessi () {
+        return this.total_rasio() * this.review.penilaian;
+    }
+    // total waktu review pelatihan per sesi
 
 }
 
