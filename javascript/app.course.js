@@ -44,73 +44,106 @@ class appCourse {
     }
 
     penyusunan_total_jam_modul() {
-    
+        document.getElementById("sched-commod-time")
 
         return this.penyusunan.module * this.jumlah.totalModul;
     }
     // perkiraan waktu pekerjaan compiler untuk module
 
     penyusunan_total_jam_latihan() {
+        document.getElementById("sched-comtra-time")
+
         return this.jumlah.totalPelatihan * this.penyusunan.pelatihan
     }
     // perkiraan waktu pekerjaan compiler untuk traine
 
     total_jam_penyusunan_penilaian_konseptual(){
+        document.getElementById("sched-compra-time")
+
         return this.penyusunan.penilaian_konseptual * this.total_penilaian_konseptual();
     }
     // perkiraan waktu pekerjaan compiler untuk assignment conceptual
 
     total_jam_penyusunan_penilaian_praktek(){
+        document.getElementById("sched-comcon-time")
+
         return this.penyusunan.penilaian_praktek * this.total_penilaian_praktek();
     }
     // perkiraan waktu pekerjaan compiler untuk assignment practical
 
     penyusunan_total_jam_penilaian(){
+        document.getElementById("sched-comasi-time")
+
         return this.total_jam_penyusunan_penilaian_konseptual() + this.total_jam_penyusunan_penilaian_praktek();
     }
     // perkiraan waktu pekerjaan compiler untuk keseluruhan assignment
 
     review_total_jam_modul(){
+        document.getElementById("sched-revmod-time")
+
         return this.review.modul * this.jumlah.totalModul;
     }
     // perkiraan waktu pekerjaan reviewer untuk keseluruhan module
 
     review_total_jam_latihan(){
+        document.getElementById("sched-revtra-time")
+
         return this.review.latihan * this.jumlah.totalPelatihan;
     }
     // perkiraan waktu pekerjaan reviewer untuk keseluruhan traine
 
     review_total_jam_penilaian(){
+        document.getElementById("sched-revasi-time")
+
         return this.review.penilaian * this.jumlah.totalPenilaian;
     }
     // perkiraan waktu pekerjaan reviewer untuk keseluruhan assignment
 
     total_module_keseluruhan_course(){
+        document.getElementById("grand-module-time")
+
         return this.jumlah.totalModul;
     }
     // total module keseluruhan
 
     total_pelatihan_keseluruhan_course(){
+        document.getElementById("grand-traine-time")
+
         return this.jumlah.totalPelatihan;
     }
     // total pelatihan keselurahan
 
     total_assignment_keseluruhan_course (){
+        document.getElementById("grand-asigne-time")
+
         return this.jumlah.totalPenilaian;
     }
-    // total assingment keselurahn
+      // total assingment keselurahn
+
+    total_pertemuan_keseluruhan_course(){
+        document.getElementById("grand-meeter-time")
+
+        return this.jumlah.totalPertemuan;
+    }
+    // total pertemuan keseluruhan
 
     total_compiler_module_sessi () {
+        document.getElementById("compiler-sessi-module-time")
+
         return this.jumlah.totalModul / this.jumlah.totalPertemuan;
     }
     // total penyusunan modul per sesi
 
     total_compiler_pelatihan_sessi () {
+        document.getElementById("compiler-sessi-traine-time")
+
         return this.jumlah.totalPelatihan / this.jumlah.totalPertemuan
     }
     // total penyusunan pelatihan per sesi
 
     total_waktu_compiler_module_sessi () {
+        document.getElementById("compiler-sessi-")
+
         return this.total_compiler_module_sessi() * this.penyusunan.module;
     }
     // total waktu penyusunan module per sesi
@@ -155,5 +188,26 @@ class appCourse {
 // Inisialisasi
 const course = new appCourse();
 
+console.log("=== RINGKASAN KESELURUHAN KURSUS ===");
+console.log("Total Modul      :", course.total_module_keseluruhan_course(), "unit");
+console.log("Total Pelatihan  :", course.total_pelatihan_keseluruhan_course(), "unit");
+console.log("Total Assignment :", course.total_assignment_keseluruhan_course(), "unit");
+
+console.log("\n=== ESTIMASI PENYUSUNAN (COMPILER) PER SESI ===");
+console.log("Modul per Sesi   :", course.total_compiler_module_sessi(), "unit");
+console.log("Waktu Modul      :", course.total_waktu_compiler_module_sessi(), "menit");
+console.log("Waktu Pelatihan  :", course.total_waktu_compiler_pelatihan_sessi(), "menit");
+console.log("Waktu Assignment :", course.total_waktu_compiler_assign_sessi(), "menit (Konsep + Praktek)");
+
+console.log("\n=== ESTIMASI REVIEW PER SESI ===");
+console.log("Waktu Review Modul  :", course.total_waktu_review_module_sessi(), "menit");
+console.log("Waktu Review Latih  :", course.total_waktu_review_pelatihan_sessi(), "menit");
+console.log("Waktu Review Assign :", course.total_waktu_review_assignment_sessi(), "menit");
+
+console.log("\n=== TOTAL WAKTU KUMULATIF (MENIT) ===");
+console.log("Total Jam Penyusunan Modul    :", course.penyusunan_total_jam_modul());
+console.log("Total Jam Penyusunan Pelatihan:", course.penyusunan_total_jam_latihan());
+console.log("Total Jam Penyusunan Penilaian:", course.penyusunan_total_jam_penilaian());
+console.log("Total Jam Review Modul        :", course.review_total_jam_modul());
 
 
