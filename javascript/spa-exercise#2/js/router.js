@@ -22,7 +22,19 @@ Router.prototype = {
     init: function () {
         var r = this.routes;
         (function (scope, r){
-            
-        })
+            window.addEventListener('hashchange', function (e) {
+                scope.hasChanged(scope, r);
+            });
+        })(this, r);
+        this.hasChanged(this, r);
+    },
+    hasChanged: function (scope, r) {
+        if (window.location.hash.length > 0) {
+            for (var i = 0, length = r.length; i < length; i++) {
+                var route = r[i];
+                if (route.isActiveRoute(window.location.hash.substr(1))) {
+                    scope.rootElem.innerHTML = route.htmlName;
+                }
+        }
     }
 }
