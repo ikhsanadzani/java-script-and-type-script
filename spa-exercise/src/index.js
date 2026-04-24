@@ -24,3 +24,43 @@ function handleRoute() {
 
 window.addEventListener('hashchange', handleRoute);
 window.addEventListener('load', handleRoute);
+
+const state = {
+    users: [],
+    currentPage: 'home',
+    isLoading: true
+};
+
+function updateState(newState) {
+    Object.assign(state, newState);
+    renderContent();
+}
+
+function renderContent() {
+    const appDiv = document.getElementById('app');
+    if (state.isLoading) {
+        appDiv.innerHTML = '<p>Loading...</p>';
+        return;
+    } 
+    appDiv.innerHTML = routes[window.location.hash || '#/']();
+}
+
+function setupEventListeners() {
+    document.getElementById('app').addEventListener('click', function(event) {
+        if (event.target.matches('.button-submit')) {
+            handleSubmit(event);
+        }
+        if (event.target.matches('.toggle-menu')) {
+            toggleMenu(event);
+        }
+    });
+}
+
+function handleSubmit(event) {
+    event.preventDefault();
+    updateState({ isLoading: true });
+}
+
+function toggleMenu(event) {
+    document.querySelector('.menu').classList.toggle('active');
+}
