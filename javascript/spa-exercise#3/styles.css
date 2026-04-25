@@ -16,3 +16,12 @@ nav ul {
     padding: 0;
 }
 
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
