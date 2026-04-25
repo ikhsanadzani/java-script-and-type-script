@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Event listeners for navigation
     document.getElementById('home').addEventListener('click', function (e) {
         e.preventDefault();
         loadContent('home');
@@ -31,5 +32,32 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
         loadContent('contact');
     });
-    loadContent('home'); 
+
+    // Load the home page by default
+    loadContent('home');
+});
+
+document.getElementById('home').addEventListener('click', function (e) {
+    e.preventDefault();
+    loadContent('home');
+    history.pushState({ page: 'home' }, 'Home', '?page=home');
+});
+
+document.getElementById('about').addEventListener('click', function (e) {
+    e.preventDefault();
+    loadContent('about');
+    history.pushState({ page: 'about' }, 'About', '?page=about');
+});
+
+document.getElementById('contact').addEventListener('click', function (e) {
+    e.preventDefault();
+    loadContent('contact');
+    history.pushState({ page: 'contact' }, 'Contact', '?page=contact');
+});
+
+// Handle popstate event
+window.addEventListener('popstate', function (event) {
+    if (event.state) {
+        loadContent(event.state.page);
+    }
 });
